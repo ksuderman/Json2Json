@@ -1,5 +1,4 @@
 # Json2Json
-JSON transformations using XSLT
 
 The Json2Json programs transforms JSON documents using XSLT stylesheets 
 written in a Groovy DSL.
@@ -8,6 +7,15 @@ A working knowledge of XSLT is required to get the most from the Json2Json
 program, at least until we write more documentaion.  Understanding how
 Groovy's [MarkupBuilder](http://docs.groovy-lang.org/latest/html/api/groovy/xml/MarkupBuilder.html)
 works is also useful as the MarkupBuilder used to generate the XSLT stylesheet.
+
+## Transformation
+
+Transforming a JSON document into another JSON document performs the following:
+
+1. Converts the Groovy DSL template into an XSLT document.
+2. Converts the input into a canonical XML format.
+3. Tranforms the canonical XML with the stylesheet.
+4. Converts the output from the transformation to JSON (optional)
 
 ## The Template DSL
 
