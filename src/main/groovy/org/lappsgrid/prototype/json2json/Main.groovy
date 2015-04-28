@@ -217,6 +217,7 @@ stylesheet {
         CliBuilder cli = new CliBuilder()
         cli.header = "Transforms JSON instances with XSLT stylesheets\n"
         cli.usage = "java -jar json2json-${Version.version}.jar [options] <template> <input>\n"
+        cli.s(longOpt: 'stylesheet', 'prints the generated XSLT stylesheet only.')
         cli.x(longOpt: 'xml', 'generates XML output')
         cli.j(longOpt: 'json', 'generates JSON output (default)')
         cli.v(longOpt: 'version', 'displays the version number')
@@ -243,6 +244,23 @@ stylesheet {
         }
 
         List<String> files = params.arguments()
+
+        if (params.s) {
+            if (files.size() == 0) {
+                println "No template provided."
+                return
+            }
+            File template = new File(files[0])
+            if (!template.exists()) {
+                println "Template not found."
+                return
+            }
+
+            Json2Xslt xslt = new Json2Xslt()
+            println xslt.compile(template.text)
+            return
+        }
+
         if (files.size() != 2) {
             println "No template and/or input file specified."
             println()

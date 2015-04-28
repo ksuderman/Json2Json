@@ -27,8 +27,7 @@ class Json2Xslt {
             closure.resolveStrategy = Closure.DELEGATE_FIRST
             def atts = [
                     version:'1.0',
-                    'xmlns:xsl':'http://www.w3.org/1999/XSL/Transform',
-                    'xmlns:list':'http://www.lappsgrid.org/ns/json2json/list'
+                    'xmlns:xsl':'http://www.w3.org/1999/XSL/Transform'
             ]
             xml.'xsl:stylesheet'(atts) {
                 "xsl:output"(method:'xml', indent:'yes', 'omit-xml-declaration':'yes')
