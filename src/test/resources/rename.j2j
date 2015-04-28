@@ -1,0 +1,24 @@
+transformation {
+    template('/ | @* | node()') {
+        copy {
+            apply_templates()
+        }
+    }
+
+    // Change the @type attribute to xsd:string
+    template('annotation/at_type') {
+        element(name:'at_type', 'xsd:string')
+    }
+
+    // Change the label to Token
+    template('annotation/label') {
+        element(name:'label', 'Token')
+    }
+
+    // Rename a feature just because.
+    template('annotation/features/word') {
+        element(name:'string') {
+            value_of('.')
+        }
+    }
+}

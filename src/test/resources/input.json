@@ -1,0 +1,99 @@
+{
+  "@context" : "http://vocab.lappsgrid.org/context-1.0.0.jsonld",
+  "metadata" : { },
+  "text" : {
+    "@value" : "Goodbye cruel world, I am leaving you today.",
+    "@language" : "en"
+  },
+  "views" : [ {
+    "metadata" : {
+      "contains" : {
+        "http://vocab.lappsgrid.org/Token" : {
+          "producer" : "http://www.anc.org",
+          "type" : "gate:tokenization"
+        }
+      }
+    },
+    "annotations" : [ {
+      "id" : "w1",
+      "start" : 0,
+      "end" : 7,
+      "@type" : "http://vocab.lappsgrid.org/Token",
+      "type" : "http://vocab.lappsgrid.org/Token",
+      "label" : "http://vocab.lappsgrid.org/Token",
+      "features" : {
+        "word" : "Goodbye"
+      }
+    }, {
+      "id" : "w2",
+      "start" : 8,
+      "end" : 13,
+      "@type" : "http://vocab.lappsgrid.org/Token",
+      "type" : "http://vocab.lappsgrid.org/Token",
+      "label" : "http://vocab.lappsgrid.org/Token",
+      "features" : {
+        "word" : "cruel"
+      }
+    }, {
+      "id" : "w3",
+      "start" : 14,
+      "end" : 19,
+      "@type" : "http://vocab.lappsgrid.org/Token",
+      "type" : "http://vocab.lappsgrid.org/Token",
+      "label" : "http://vocab.lappsgrid.org/Token",
+      "features" : {
+        "word" : "world"
+      }
+    }, {
+      "id" : "w4",
+      "start" : 21,
+      "end" : 22,
+      "@type" : "http://vocab.lappsgrid.org/Token",
+      "type" : "http://vocab.lappsgrid.org/Token",
+      "label" : "http://vocab.lappsgrid.org/Token",
+      "features" : {
+        "word" : "I"
+      }
+    }, {
+      "id" : "w5",
+      "start" : 23,
+      "end" : 25,
+      "@type" : "http://vocab.lappsgrid.org/Token",
+      "type" : "http://vocab.lappsgrid.org/Token",
+      "label" : "http://vocab.lappsgrid.org/Token",
+      "features" : {
+        "word" : "am"
+      }
+    }, {
+      "id" : "w6",
+      "start" : 26,
+      "end" : 33,
+      "@type" : "http://vocab.lappsgrid.org/Token",
+      "type" : "http://vocab.lappsgrid.org/Token",
+      "label" : "http://vocab.lappsgrid.org/Token",
+      "features" : {
+        "word" : "leaving"
+      }
+    }, {
+      "id" : "w7",
+      "start" : 34,
+      "end" : 37,
+      "@type" : "http://vocab.lappsgrid.org/Token",
+      "type" : "http://vocab.lappsgrid.org/Token",
+      "label" : "http://vocab.lappsgrid.org/Token",
+      "features" : {
+        "word" : "you"
+      }
+    }, {
+      "id" : "w8",
+      "start" : 38,
+      "end" : 43,
+      "@type" : "http://vocab.lappsgrid.org/Token",
+      "type" : "http://vocab.lappsgrid.org/Token",
+      "label" : "http://vocab.lappsgrid.org/Token",
+      "features" : {
+        "word" : "today"
+      }
+    } ]
+  } ]
+}

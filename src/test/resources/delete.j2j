@@ -1,0 +1,11 @@
+/*
+ * A short example that deletes the <type> element from <annotation> elements
+ */
+stylesheet {
+    template('/ | @* | node()') {
+        copy {
+            apply_templates('@* | node()')
+        }
+    }
+    template('annotation/type') { /* Ignored */ }
+}
