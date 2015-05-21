@@ -6,14 +6,16 @@
     <parent>
         <groupId>org.anc.maven</groupId>
         <artifactId>groovy-parent-pom</artifactId>
-        <version>1.4.0</version>
+        <version>1.5.0-SNAPSHOT</version>
     </parent>
-    <groupId>org.anc.example</groupId>
-    <artifactId>json2json-dsl</artifactId>
+    <groupId>org.anc.json</groupId>
+    <artifactId>transform</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <properties>
-        <groovy.version>2.2.0</groovy.version>
-        <ivy.version>2.2.0</ivy.version>
+        <groovy.version>2.3.10</groovy.version>
+        <ivy.version>2.4.0</ivy.version>
+        <serialization.version>2.0.1-SNAPSHOT</serialization.version>
+        <cli.version>1.2</cli.version>
     </properties>
     <build>
         <plugins>
@@ -57,7 +59,7 @@
                     <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
-                            <mainClass>org.lappsgrid.prototype.json2json.Main</mainClass>
+                            <mainClass>org.anc.json.transform.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -68,7 +70,7 @@
         <dependency>
             <groupId>org.lappsgrid</groupId>
             <artifactId>serialization</artifactId>
-            <version>2.0.0</version>
+            <version>${serialization.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-cli</groupId>
@@ -85,6 +87,13 @@
             <artifactId>ivy</artifactId>
             <version>${ivy.version}</version>
         </dependency>
+        <!--
+        <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>Saxon-HE</artifactId>
+            <version>9.4</version>
+        </dependency>
+        -->
     </dependencies>
 
 </project>

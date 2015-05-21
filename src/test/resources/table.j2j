@@ -1,0 +1,54 @@
+stylesheet {
+    template('/') {
+        html {
+            head {
+                title 'This is a test'
+            }
+            body {
+                h1 'Word list'
+                table {
+                    apply_templates()
+                }
+            }
+        }
+    }
+    template('@*|node()') {
+        apply_templates()
+    }
+
+    template('word') {
+        tr {
+            td {
+                value_of('.')
+            }
+        }
+    }
+}
+/**
+stylesheet {
+    template('/') {
+        element('html') {
+            element('head') {
+                element('title',  'This is a test')
+            }
+            element('body') {
+                element('h1', 'Word list')
+                element('table') {
+                    apply_templates()
+                }
+            }
+        }
+    }
+    template('@*|node()') {
+        apply_templates()
+    }
+
+    template('word') {
+        element('tr') {
+            element('td') {
+                value_of('.')
+            }
+        }
+    }
+}
+*/

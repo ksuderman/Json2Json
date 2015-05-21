@@ -1,0 +1,223 @@
+{
+  "GateDocument": {
+    "@version": "3",
+    "#comment": [
+      " The document's features",
+      " The document content area with serialized nodes ",
+      " The default annotation set "
+    ],
+    "GateDocumentFeatures": {
+      "Feature": {
+        "Name": {
+          "@className": "java.lang.String",
+          "__text__": "gate.SourceURL"
+        },
+        "Value": {
+          "@className": "java.lang.String",
+          "__text__": "created from String"
+        }
+      }
+    },
+    "TextWithNodes": {
+      "Node": [
+        {
+          "__tail__": "Mike",
+          "@id": "0"
+        },
+        {
+          "__tail__": ".",
+          "@id": "4"
+        },
+        {
+          "@id": "5"
+        }
+      ]
+    },
+    "AnnotationSet": {
+      "Annotation": [
+        {
+          "@EndNode": "4",
+          "@Id": "0",
+          "@StartNode": "0",
+          "@Type": "Token",
+          "Feature": [
+            {
+              "Name": {
+                "@className": "java.lang.String",
+                "__text__": "length"
+              },
+              "Value": {
+                "@className": "java.lang.Integer",
+                "__text__": "4"
+              }
+            },
+            {
+              "Name": {
+                "@className": "java.lang.String",
+                "__text__": "chunk"
+              },
+              "Value": {
+                "@className": "java.lang.String",
+                "__text__": "B-NP"
+              }
+            },
+            {
+              "Name": {
+                "@className": "java.lang.String",
+                "__text__": "category"
+              },
+              "Value": {
+                "@className": "java.lang.String",
+                "__text__": "NNP"
+              }
+            },
+            {
+              "Name": {
+                "@className": "java.lang.String",
+                "__text__": "source"
+              },
+              "Value": {
+                "@className": "java.lang.String",
+                "__text__": "OpenNLP"
+              }
+            },
+            {
+              "Name": {
+                "@className": "java.lang.String",
+                "__text__": "string"
+              },
+              "Value": {
+                "@className": "java.lang.String",
+                "__text__": "Mike"
+              }
+            }
+          ]
+        },
+        {
+          "@EndNode": "5",
+          "@Id": "1",
+          "@StartNode": "4",
+          "@Type": "Token",
+          "Feature": [
+            {
+              "Name": {
+                "@className": "java.lang.String",
+                "__text__": "length"
+              },
+              "Value": {
+                "@className": "java.lang.Integer",
+                "__text__": "1"
+              }
+            },
+            {
+              "Name": {
+                "@className": "java.lang.String",
+                "__text__": "chunk"
+              },
+              "Value": {
+                "@className": "java.lang.String",
+                "__text__": "O"
+              }
+            },
+            {
+              "Name": {
+                "@className": "java.lang.String",
+                "__text__": "category"
+              },
+              "Value": {
+                "@className": "java.lang.String",
+                "__text__": "."
+              }
+            },
+            {
+              "Name": {
+                "@className": "java.lang.String",
+                "__text__": "source"
+              },
+              "Value": {
+                "@className": "java.lang.String",
+                "__text__": "OpenNLP"
+              }
+            },
+            {
+              "Name": {
+                "@className": "java.lang.String",
+                "__text__": "string"
+              },
+              "Value": {
+                "@className": "java.lang.String",
+                "__text__": "."
+              }
+            }
+          ]
+        },
+        {
+          "@EndNode": "5",
+          "@Id": "2",
+          "@StartNode": "0",
+          "@Type": "Sentence",
+          "Feature": {
+            "Name": {
+              "@className": "java.lang.String",
+              "__text__": "source"
+            },
+            "Value": {
+              "@className": "java.lang.String",
+              "__text__": "OpenNLP"
+            }
+          }
+        },
+        {
+          "@EndNode": "5",
+          "@Id": "3",
+          "@StartNode": "4",
+          "@Type": "Split",
+          "Feature": [
+            {
+              "Name": {
+                "@className": "java.lang.String",
+                "__text__": "source"
+              },
+              "Value": {
+                "@className": "java.lang.String",
+                "__text__": "OpenNLP"
+              }
+            },
+            {
+              "Name": {
+                "@className": "java.lang.String",
+                "__text__": "kind"
+              },
+              "Value": {
+                "@className": "java.lang.String",
+                "__text__": "internal"
+              }
+            }
+          ]
+        },
+        {
+          "@EndNode": "4",
+          "@Id": "4",
+          "@StartNode": "0",
+          "@Type": "NP"
+        },
+        {
+          "@EndNode": "4",
+          "@Id": "5",
+          "@StartNode": "0",
+          "@Type": "Person",
+          "Feature": {
+            "Name": {
+              "@className": "java.lang.String",
+              "__text__": "source"
+            },
+            "Value": {
+              "@className": "java.lang.String",
+              "__text__": "OpenNLP"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

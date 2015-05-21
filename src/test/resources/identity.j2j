@@ -1,4 +1,4 @@
-transformation {
+stylesheet {
     template('/ | @* | node()') {
         copy {
             apply_templates('@* | node()')
