@@ -1,0 +1,22 @@
+{
+  "catalog": {
+    "foo:cd": [
+      {
+        "title": "Hide your heart",
+        "artist": "Bonnie Tyler",
+        "country": "UK",
+        "company": "CBS Records",
+        "price": "9.90",
+        "year": "1988"
+      },
+      {
+        "title": "Greatest Hits",
+        "artist": "Dolly Parton",
+        "country": "USA",
+        "company": "RCA",
+        "price": "9.90",
+        "year": "1982"
+      }
+    ]
+  }
+}
