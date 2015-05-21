@@ -1,1 +1,0 @@
-The DomBuilder branch is to add a builder that returns a DOM object instead of an XML string.
