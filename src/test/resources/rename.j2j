@@ -1,23 +1,25 @@
-transformation {
+import static org.lappsgrid.discriminator.Discriminators.Uri
+
+stylesheet {
     template('/ | @* | node()') {
         copy {
-            apply_templates()
+            apply_templates('@*|node()')
         }
     }
 
-    // Change the @type attribute to xsd:string
-    template('annotation/at_type') {
-        element(name:'at_type', 'xsd:string')
+    // Delete the @type attribute
+    template('at_type | type') {
+        //at_type 'xsd:string'
     }
 
-    // Change the label to Token
-    template('annotation/label') {
-        element(name:'label', 'Token')
+    // Ensure the label is set to a LAPPS Token URI (imported above).
+    template('label') {
+        label Uri.TOKEN
     }
 
-    // Rename a feature just because.
-    template('annotation/features/word') {
-        element(name:'string') {
+    // Rename features/word to features/string
+    template('annotations/item/features/word') {
+        string {
             value_of('.')
         }
     }
