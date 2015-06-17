@@ -1,0 +1,2 @@
+Divide the project into two (or more) separate modules; one Maven module with just the
+JSON transformer and another module for the command line tool.
