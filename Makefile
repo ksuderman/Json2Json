@@ -22,11 +22,11 @@ clean:
 	mvn clean
 		
 snapshot:
-	issnapshot ; if [ $? -eq 1 ] ; exit 1 ; fi
+	issnapshot ; if [ $? -eq 1 ] ; then exit 1 ; fi
 	mvn javadoc:jar source:jar deploy
 	
 deploy:
-	pom ; if [ $? -eq 1 ] ; exit 1 ; fi
+	pom ; if [ $? -eq 1 ] ; then exit 1 ; fi
 	mvn javadoc:jar source:jar deploy
 	
 	
