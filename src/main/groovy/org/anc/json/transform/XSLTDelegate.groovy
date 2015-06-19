@@ -112,18 +112,22 @@ class XSLTDelegate {
     }
 
     void template(String pattern, Closure cl) {
-        append('template', [match:pattern])
+        append('template', [match:fix(pattern)])
         call(cl)
         pop()
     }
 
     void template(String pattern, String mode, Closure cl) {
-        append('template', [match:pattern, mode:mode])
+        append('template', [match:fix(pattern), mode:mode])
         call(cl)
         pop()
     }
 
     void template(Map map, Closure cl) {
+        String pattern = map.match
+        if (pattern) {
+            map.match = fix(pattern)
+        }
         append('template', map)
         call(cl)
         pop()
@@ -135,16 +139,20 @@ class XSLTDelegate {
     }
 
     void apply_templates(String pattern) {
-        append('apply-templates', [select:pattern])
+        append('apply-templates', [select:fix(pattern)])
         pop()
     }
 
     void apply_templates(String pattern, String mode) {
-        append('apply-templates', [select:pattern, mode:mode])
+        append('apply-templates', [select:fix(pattern), mode:mode])
         pop()
     }
 
     void apply_templates(Map map) {
+        String pattern = map.select
+        if (pattern) {
+            map.select = fix(pattern)
+        }
         append('apply-templates', map)
         pop()
     }
@@ -168,7 +176,7 @@ class XSLTDelegate {
     }
 
     void copy_of(String pattern) {
-        append('copy-of', [select:pattern])
+        append('copy-of', [select:fix(pattern)])
         pop()
     }
 
@@ -178,7 +186,7 @@ class XSLTDelegate {
     }
 
     void copy_of(String pattern, Closure cl) {
-        append('copy-of', [select:pattern])
+        append('copy-of', [select:fix(pattern)])
         call(cl)
         pop()
     }
@@ -277,5 +285,9 @@ class XSLTDelegate {
             element.setAttribute(key, value)
         }
         return element
+    }
+
+    String fix(String name) {
+        return name.replaceAll('#', '__hash__')
     }
 }

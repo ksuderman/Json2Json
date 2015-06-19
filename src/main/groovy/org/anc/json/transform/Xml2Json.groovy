@@ -49,7 +49,7 @@ class Xml2Json {
                 name = name = '#' + ref
             }
         }
-        return name
+        return name.replaceAll("__hash__", "#")
     }
 
 //    static String _getName(Node node) {
