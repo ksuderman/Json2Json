@@ -10,6 +10,7 @@ help:
 	@echo
 	@echo "      clean : Clean removes all artifacts from previous builds."
 	@echo "        jar : Creates the jar file."
+	@echo "    install : Install to the local Maven repository."
 	@echo "   snapshot : Deploys a snapshot to Nexus."
 	@echo "     deploy : Deploys a release version to Nexus."
 	@echo "       help : Displays this help message."
@@ -21,6 +22,9 @@ jar:
 clean:
 	mvn clean
 		
+install:
+	mvn install
+	
 snapshot:
 	issnapshot ; if [ $? -eq 1 ] ; then exit 1 ; fi
 	mvn javadoc:jar source:jar deploy
