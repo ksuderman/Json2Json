@@ -1,0 +1,58 @@
+import static org.lappsgrid.discriminator.Discriminators.Uri
+
+stylesheet(lapps:'http://vocab.lappsgrid.org') {
+    template('/') {
+        container(kind:'map') {
+            text(kind:'map') {
+                '@value' {
+                    // Process all Node elements that are followed by a Node element.
+                    apply_templates('GateDocument/TextWithNodes/Node[following-sibling::node()["Node"]]')
+                }
+                '@language'('en')
+            }
+            views(kind:'list') {
+                view(kind:'map') {
+                    metadata(kind:'map') {
+                        contains(kind:'map') {
+                            "lapps:Token"(kind:'map') {
+                                producer 'http://www.anc.org'
+                                type 'gate:tokenization'
+                            }
+                        }
+                    }
+                    annotations(kind:'list') {
+                        apply_templates('GateDocument/AnnotationSet')
+                    }
+                }
+            }
+        }
+    }
+
+    template('Node') {
+        copy_of(select:'normalize-space(following-sibling::text())')
+    }
+
+    template('Annotation') {
+        element('annotation', [kind:'map']) {
+            id { value_of('@Id') }
+            label { value_of('@Type') }
+            type { text("${Uri.TOKEN}") }
+            start(type:'int') { value_of('@StartNode') }
+            end(type:'int') { value_of('@EndNode') }
+            features(kind:'map') {
+                apply_templates('Feature')
+            }
+        }
+    }
+    template('Feature') {
+        element('{Name}') {
+            value_of(select:'Value')
+        }
+    }
+
+    template('@*|node()') {
+        apply_templates()
+    }
+
+
+}

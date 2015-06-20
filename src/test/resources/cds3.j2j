@@ -1,0 +1,36 @@
+ELEMENTS=['title','artist','price','year']
+stylesheet(foo:'foo', bar:'bar') {
+    template('/') {
+        cds(kind:'map') {
+            ELEMENTS.each { type ->
+                "${type}s"(kind:'list') {
+                    apply_templates(mode:type)
+                }
+            }
+        }
+    }
+    template('@*|node()', '#all') {
+        apply_templates(mode:'#current')
+    }
+
+    template('title', 'title') {
+        title {
+            value_of('.')
+        }
+    }
+    template('artist', 'artist') {
+        artist {
+            value_of('.')
+        }
+    }
+    template('price', 'price') {
+        price(type:'float') {
+            value_of('.')
+        }
+    }
+    template('year', 'year') {
+        year(type:'int') {
+            value_of('.')
+        }
+    }
+}

@@ -1,29 +1,30 @@
-package org.lappsgrid.prototype.json2json
+package org.lappsgrid.prototype.json2json.deprecated
 
 import groovy.json.JsonSlurper
-import groovy.xml.MarkupBuilder
+import org.w3c.dom.Document
 
 /**
  * @author Keith Suderman
+ * @deprecated
  */
 class Json2Xml {
-    private JsonToXMl() {}
+    private Json2XMl() {}
 
-    static String convert(URL url) {
+    static Document convert(URL url) {
         return convert(new JsonSlurper().parse(url))
     }
 
-    static String convert(File file) {
+    static Document convert(File file) {
         return convert(new JsonSlurper().parse(file))
     }
 
-    static String convert(String json) {
+    static Document convert(String json) {
         return convert(new JsonSlurper().parseText(json))
     }
 
-    static String convert(Object object) {
-        StringWriter writer = new StringWriter()
-        MarkupBuilder builder = new MarkupBuilder(writer)
+    static Document convert(Object object) {
+//        StringWriter writer = new StringWriter()
+        DOMBuilder builder = new DOMBuilder()
         String base = 'http://www.lappsgrid.org/ns/json2json'
         def namespaces = [
 //                'xmlns:lapps':base,
@@ -34,16 +35,21 @@ class Json2Xml {
         builder.'container'(namespaces) {
             convert(object, "", builder)
         }
-        return writer.toString()
+//        return writer.toString()
+        return builder.document
     }
 
-    static void convert(Object object, String parent, MarkupBuilder builder) {
-        builder.mkp.yield(object.toString())
+    static void convert(Object object, String parent, DOMBuilder builder) {
+        println "Converting object $object"
+        //builder.mkp.yield(object.toString())
+        builder.text(object.toString())
     }
 
-    static void convert(List list, String parent, MarkupBuilder builder) {
+    static void convert(List list, String parent, DOMBuilder builder) {
+        println "Converting list"
         String name = parent[0..-2]
         list.each { li ->
+            println "List element: ${li}"
             String type = getType(li)
             builder."$name"(kind:type) {
                 convert(li, name, builder)
@@ -51,7 +57,8 @@ class Json2Xml {
         }
     }
 
-    static void convert(Map map, String parent, MarkupBuilder builder) {
+    static void convert(Map map, String parent, DOMBuilder builder) {
+        println "Converting map"
         map.each { k, v ->
             def atts = [:]
             atts.kind = getType(v)
@@ -68,6 +75,8 @@ class Json2Xml {
             else {
                 name = k.replace("@", "at_")
             }
+
+            println "Map element: ${v}"
             builder."$name"(atts) {
                 convert(v, name, builder)
             }

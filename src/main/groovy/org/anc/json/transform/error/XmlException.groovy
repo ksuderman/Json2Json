@@ -1,4 +1,4 @@
-package org.lappsgrid.prototype.json2json.error
+package org.anc.json.transform.error
 
 /**
  * @author Keith Suderman

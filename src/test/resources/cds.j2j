@@ -1,0 +1,37 @@
+stylesheet(foo:'foo',bar:'bar') {
+    template('/') {
+        element("wrapper", [kind:'map']) {
+            element('cds', [kind:'map']) {
+                element('titles', [kind:'list']) {
+                    apply_templates(mode:'titles')
+                }
+                element('artists', [kind:'list']) {
+                    apply_templates(mode:'artists')
+                }
+            }
+        }
+    }
+    template('@*|node()') {
+        apply_templates('@*|node()')
+    }
+
+    template('@*|node()', 'artists') {
+        apply_templates(mode:'artists')
+    }
+
+    template('@*|node()', 'titles') {
+        apply_templates(mode:'titles')
+    }
+
+    template('title', 'titles') {
+        element('title',[class:'java.lang.String']) {
+            value_of('.')
+        }
+    }
+    template('artist', 'artists') {
+        element('artist',[class:'java.lang.String']) {
+            value_of('.')
+        }
+    }
+
+}
