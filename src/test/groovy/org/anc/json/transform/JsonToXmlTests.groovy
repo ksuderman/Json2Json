@@ -11,12 +11,12 @@ class JsonToXmlTests {
 
     @Test
     void inputToXml() {
-        URL url = this.class.getResource('/input.json')
+        URL url = this.class.getResource('/hash.json')
         JsonToXml converter = new JsonToXml()
         Document xml = converter.convert(url)
         JsonTransformer.prettyPrint(xml)
 
-        Object object = Xml2Json.convert(xml)
+        Object object = new Xml2Json().convert(xml)
         println Serializer.toPrettyJson(object)
     }
 

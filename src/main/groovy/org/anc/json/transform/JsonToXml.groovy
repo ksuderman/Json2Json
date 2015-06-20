@@ -36,10 +36,11 @@ class JsonToXml {
                 //TODO The namespace prefix needs to be generated rather than using a hard coded value.
                 name = 'x:' + (url.file[1..-1] ?: "unknown")
                 String namespace = url.protocol + '://' + url.host
-                element = document.createElementNS(namespace, name)
                 if (url.ref) {
-                    element.setAttribute('ref', url.ref)
+                    //element.setAttribute('ref', url.ref)
+                    name = name + "__hash__" + url.ref
                 }
+                element = document.createElementNS(namespace, name)
             }
             else if (name.startsWith('@')) {
                 name = 'at_' + name.substring(1)
