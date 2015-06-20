@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.anc.json</groupId>
     <artifactId>transform</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>JSON Transformer</name>
     <description>Transform JSON documents using XSLT stylesheets.</description>
     <properties>
